@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="server.js"></script>
+</head>
+<body class="container">
+    <main class="conteudo">
+        <header class="cabecalho">
+            <div class="menu-cima">
+                <img src="img/logo.png" id="logo"alt="Logo da empresa">
+                <h1 id="titulo">Lista de Produtos</h1>
+                <p>Gerenciador de estoque de produtos eletronicos</p>
+            </div>
+            <div class="logo">
+            </div>
+        </header>
+
+        <section class="crud-produtos">
+            <table class="tabela">
+                <tr class="header">
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                </tr>
+
+                <tbody id="elementos">
+                </tbody>
+            </table>
+        </section>
+
+        <div class="botoes">
+            <button class="btn-padrao" id="carregar">Carregar Produtos</button>
+            <button class="btn-padrao" id="cadastrar">Cadastrar Produto</button>
+            <button class="btn-padrao" id="editar">Editar Produto</button>
+            <button class="btn-padrao" id="excluir">Excluir Produto</button>
+        </div>
+    </main>
+
+</body>
+</html>
