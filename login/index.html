@@ -9,14 +9,14 @@
 <body class="conteudo">
     <section class="painel">
         <img id="logo" src="../site/img/logo.png" alt="logo">
-        <form class="formulario">
+        <form class="formulario" action="/login" method="POST">
             <div class="inputs">
                 <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" placeholder="Digite seu usuario">
+                <input type="text" id="usuario" name="username" placeholder="Digite seu usuario" required>
             </div>
             <div class="inputs">
                 <label for="password">Senha:</label>
-                <input type="text" id="password" placeholder="Digite sua senha">
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
             </div>
             <div class="confirmar">
                 <button id="btn-confirm" type="submit">Logar</button>
