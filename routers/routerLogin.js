@@ -18,7 +18,7 @@ routerLogin.post('/', (req, res) => {
     }
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' })
-    res.json({ token })
+    res.redirect(`/site?token=${token}`)
 })
 
 routerLogin.get('/protegida', authToken, (req, res) => {
