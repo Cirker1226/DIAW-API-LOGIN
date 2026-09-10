@@ -7,8 +7,6 @@ const routerLogin = express.Router()
 
 const usuarios = [ { id: 1, username: 'Matheus', password: 'matheus123'} ]
 
-routerLogin.use('/login', express.static('login'))
-
 routerLogin.post('/', (req, res) => {
     const {username, password} = req.body
     const user = usuarios.find(usuario => usuario.username === username && usuario.password === password)
