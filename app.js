@@ -27,7 +27,9 @@ app.use('/produtos', routerProdutos);
 
 /* ------------------------------------------------------------ */
 
-app.use('/login', express.static('login'));
+const redirectLogado = require('./middlewares/redirectLogado')
+
+app.use('/login', redirectLogado, express.static('login'));
 
 const routerLogin = require('./routers/routerLogin');
 
