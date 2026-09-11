@@ -16,27 +16,18 @@ routerLogin.post('/', (req, res) => {
     }
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' })
-    res.redirect(`/site?token=${token}`)
-})
 
-routerLogin.get('/protegida', authToken, (req, res) => {
-    res.json( { message: "Voce acessou uma rota protegida"} )
-})
-
-function authToken(req, res, next) {
-    const authHeader = req.headers['authorization']
-
-    const token = authHeader.split(' ')[1]
-
-    if (!token) {
-        return res.sendStatus(401)
-    }
-
-    jwt.verify(token, process.env.JWT_SECRET, (erro, usuario) => {
-        if (erro) return res.sendStatus(401)
-        req.usuario = usuario
-        next()
+    res.cookie('token', token, {
+        httpOnly: true,
+        maxAge: 60 * 60 * 1000 // A duração maxima do cookie é de 1 hora
     })
-}
+
+    res.redirect('/site')
+})
+
+routerLogin.get('/logout', (req, res) => {
+    res.clearCookie('token')
+    res.redirect('/login')
+})
 
 module.exports = routerLogin

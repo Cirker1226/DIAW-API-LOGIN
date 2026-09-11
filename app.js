@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
+const cookie = require('cookie-parser')
 
 app.use(express.json())
+app.use(cookie())
 app.use(express.urlencoded({ extended: true }))
 
 /* ------------------------------------------------------------ */
@@ -13,7 +15,11 @@ app.use((requisitar, resposta, next) => {
 
 /* ------------------------------------------------------------ */
 
-app.use('/site', express.static('site'))
+const VerificarLogin = require('./middlewares/authSite')
+
+app.use('/site', VerificarLogin, express.static('site'))
+
+/* ------------------------------------------------------------ */
 
 const routerProdutos = require('./routers/routerProdutos');
 

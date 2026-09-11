@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Cirker1226/DIAW-API#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.5",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.2"
